@@ -8,7 +8,7 @@ body {
     margin: 70px auto;
     max-width: 420px;
     width: 80℅;
-    min-height: 350px;
+    height: 350px;
     padding: 50px;
     border: 5px solid #ffffff;
     border-radius: 10px;
@@ -77,5 +77,6 @@ body {
     font-style: italic;
 
 }
+
 
 
