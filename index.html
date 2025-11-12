@@ -1,33 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./index.css">
-    </head>
-    <body>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="container">
         <div id="main">
-            <div id="head">
-                <h1>Metric/Imperial Unit Converter</h1>
-                <div><input type="text" id="input-el"></div>
-                <button id="cnvrt">CONVERT</button>
-            </div>
-            <div id="body">
-                <div class="block">
-                    <h2>Length (Meters/Feet)</h2>
-                    <p id="length-el">-----------------</p>
-                </div>
-                <div class="block">
-                    <h2>Volume (Litres/Gallons)</h2>
-                    <p id="volume-el">-----------------</p>
-                </div>
-                <div class="block">
-                    <h2>Mass (Kilograms/Pounds)</h2>
-                    <p id="mass-el">-----------------</p>
-                </div>
-            </div>
-            <p id="alert"></p>
+            <h1 id="firstline">Generate a</h1>
+            <h1 id="secondline">random password</h1>
+            <p id="caution">Never use an insecure password again.</p>
+            <button id="generator" onclick="generate()">Generate Password</button>        
         </div>
-        <script src="./index.js"></script>
-    </body>
+        <div id="sgsns">
+            <button id="firstsgsn" onclick="copy()">Option one</button>
+            <button id="secondsgsn" onclick="copy()">Option two</button>
+        </div>
+        <p id="txt"></p>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
 
 </html>
+

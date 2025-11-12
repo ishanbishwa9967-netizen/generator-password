@@ -1,51 +1,42 @@
-// 1 meter = 3.281 feet 
-// 1 litre = 0.264 gallon 
-// 1 kilogram = 2.204 pound 
+let characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T",
+    "U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s",
+    "t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","!","@","#","$","%","&","*","+",
+    "-","_","+","=","~","`","(",")","[","]","{","}","\\","|","\"","\'","<",">",".","/","?","^"]
 
-const inputEl = document.getElementById("input-el")
-const lengthEl = document.getElementById("length-el")
-const volumeEl = document.getElementById("volume-el")
-const massEl = document.getElementById("mass-el")
-const cnVrt = document.getElementById("cnvrt")
-const alerT = document.getElementById("alert")
+const firstEl = document.getElementById("firstsgsn")
+const secondEl = document.getElementById("secondsgsn")
+const txt = document.getElementById("txt")
 
-cnVrt.addEventListener("click", function() {
-    const num = Number(inputEl.value)
-    if (num) {
-        // if input -> not a number , num -> NaN , a falshy value ... that's it !!
-        inputEl.value = ""
-        alerT.textContent = ""
-        render(num)
-    } else {
-        alerT.textContent = "Note: oh, man! come onn ... just numbers, please !! "
+function generate() {
+    passwordOne = generator()
+    passwordTwo = generator()
+    firstEl.textContent = passwordOne
+    secondEl.textContent = passwordTwo
+    if (txt.textContent === "") {
+        txt.textContent = "Note: click to copy !"
+    } else if (firstEl.textContent != "Option one") {
+        txt.textContent = " "
     }
-})
-
-
-function Length(param) {
-    let inFeet = param * 3.281
-    let inMeter = param / 3.281
-    return [inFeet.toFixed(3), inMeter.toFixed(3)]
 }
 
-function Volume(param) {
-    let inGallon = param * 0.264
-    let inLitre = param / 0.264
-    return [inGallon.toFixed(3), inLitre.toFixed(3)]
+function generator() {
+    let password = ""
+    let passwordContent = []
+    for (i=0; i<16 ; i++) {
+        let n = Math.floor(Math.random() * characters.length) 
+        random = characters[n]
+        if (passwordContent.includes(random) === false) {
+            passwordContent.push(random)
+        }
+    }
+    for (i=0 ; i<passwordContent.length ; i++) {
+        password += passwordContent[i]
+    }
+    return password   
 }
 
-function Mass(param) {
-    let inPound = param * 2.204
-    let inKilo = param / 2.204
-    return [inPound.toFixed(3), inKilo.toFixed(3)]
-}
-
-function render(num) {
-    let lengths = Length(num)
-    let volumes = Volume(num)
-    let masses = Mass(num)
-    lengthEl.textContent = `${num} meters = ${lengths[0]} feet | ${num} feet = ${lengths[1]} meters`
-    volumeEl.textContent = `${num} litres = ${volumes[0]} gallons | ${num} gallons = ${volumes[1]} litres`
-    massEl.textContent = `${num} kilos = ${masses[0]} pounds | ${num} pounds = ${masses[1]} kilos`
-
+function copy() {
+    if (firstEl.textContent != "Option one") {
+        txt.textContent = "Note: typing it by yourself would help you not forget the password :)"
+    }
 }
